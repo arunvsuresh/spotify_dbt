@@ -27,7 +27,7 @@ from {{ source('staging', 'audio_features') }}
 
 where id is not null
 
-{% if var('is_test_run', default=true) %}
+{% if var('is_test_run', default=false) %}
 
     limit 100
 
