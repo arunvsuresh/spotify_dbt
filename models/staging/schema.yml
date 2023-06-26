@@ -1,0 +1,76 @@
+version: 2
+
+sources:
+  - name: staging
+    database: astute-atlas-387920
+    schema: spotify
+
+    tables:
+      - name: tracks
+      - name: playlists
+      - name: audio_features
+
+models:
+  - name: stg_audio_features
+    description: 
+      Audio features of spotify tracks. Provides more detailed audio info for each track such as danceability, loudness, tempo, etc.
+    
+    columns:
+      - name: track_pid	
+        description: primary key for table, concatenation of id & uri
+        tests:
+          - unique:
+              severity: warn
+          - not_null:
+              severity: warn
+      - name: danceability	
+      - name: energy					
+      - name: key					
+      - name: loudness					
+      - name: mode					
+      - name: speechiness					
+      - name: acousticness					
+      - name: instrumentalness					
+      - name: liveness					
+      - name: valence					
+      - name: tempo					
+      - name: type					
+      - name: track_id					
+      - name: uri					
+      - name: track_href					
+      - name: analysis_url					
+      - name: duration_ms					
+      - name: time_signature					
+      - name: track_mood
+        description: A string signifying the mood of the track.
+        # tests: 
+        #   - accepted_values:
+        #       values: "{{ var('track_mood_values') }}"
+        #       severity: warn
+        #       quote: false
+
+  - name: stg_tracks
+    description: 
+      info about tracks such as track_name, artist(s) who performed the track, playlists they're a part of, etc.
+    columns:
+      - name: track_playlist_id
+        description: primary key for table, concatenation of track_id & playlist_id
+        tests:
+          - unique:
+              severity: warn
+          - not_null:
+              severity: warn					
+      - name: track_id					
+      - name: track_name
+      - name: artist_name
+      - name: artist_id
+      - name: track_popularity
+      - name: album_name
+      - name: album_id
+      - name: track_length
+      - name: release_date
+      - name: playlist_id
+      - name: playlist_name
+      - name: genre
+
+

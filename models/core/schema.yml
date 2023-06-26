@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: audio_features
+    description: >
+      List of audio features of each track. 
+    columns:
+      - name: track_pid
+        description: primary key, concatenation of id and uri
+        tests:
+            - not_null:
+                severity: error
+  - name: tracks
+    description: >
+      Detailed info about each track such as name, artist(s) who performed track, release_date, etc.
+      
+  
+    columns:
+      - name: track_playlist_id
+        description: primary key, concatenation of track_id and playlist_id
+        tests:
+            - not_null:
+                severity: error
