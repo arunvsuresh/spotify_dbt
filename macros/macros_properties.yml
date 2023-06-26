@@ -1,0 +1,12 @@
+version: 2
+
+macros:
+  - name: get_track_mood
+    description: >
+      This macro receives a payment_type and returns the corresponding description.
+    arguments:
+      - name: valence
+        type: int
+        description: > 
+          track_mood value.
+          Must be one of the accepted values, otherwise the macro will return null
