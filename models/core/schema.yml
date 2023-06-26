@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: audio_features
+  - name: prod_audio_features
     description: >
       List of audio features of each track. 
     columns:
@@ -10,7 +10,7 @@ models:
         tests:
             - not_null:
                 severity: error
-  - name: tracks
+  - name: prod_tracks
     description: >
       Detailed info about each track such as name, artist(s) who performed track, release_date, etc.
       
