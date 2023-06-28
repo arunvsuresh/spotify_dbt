@@ -42,8 +42,8 @@ models:
 # vars:
 #   track_mood_values: []
   
-seeds:
-  spotify:
-    tracks:
-      +column_types:
-        track_popularity: numeric
+# seeds:
+#   spotify:
+#     tracks:
+#       +column_types:
+#         track_popularity: numeric
